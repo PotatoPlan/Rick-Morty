@@ -1,0 +1,20 @@
+.character-profile {
+  margin-bottom: 1%;
+}
+
+.character-profile h3 {
+  padding: 2%;
+  background-color: #24325f;
+  color: #ffffff;
+}
+
+.character-profile h3:hover {
+  background-color: #384e94;
+  cursor: pointer;
+}
+
+/* .character-profile img {
+  width: 50%;
+  border: 1px solid #24325f;
+  border-radius: 50%;
+} */

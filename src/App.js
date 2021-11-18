@@ -1,5 +1,8 @@
+import { QueryClientProvider, QueryClient } from "react-query";
 import "./App.css";
 import Characters from "./components/Characters";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -8,7 +11,9 @@ function App() {
         <h1>Rick and Morty All Human Characters</h1>
       </div>
 
-      <Characters />
+      <QueryClientProvider client={queryClient}>
+        <Characters />
+      </QueryClientProvider>
     </div>
   );
 }

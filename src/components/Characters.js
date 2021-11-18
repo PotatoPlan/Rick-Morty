@@ -18,13 +18,16 @@ export default function Characters() {
       .get(`${baseUrl}/character/?species=human&page=${page}`)
       .then((response) => {
         // Check received data
-        console.log(response.data);
+        // console.log(response.data);
         setCharacters(response.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
   // React Query hook for paginated API query
-  const { status, error, isFetching, isPreviousData } = useQuery(
+  const { status, error, isPreviousData } = useQuery(
     [characters, pageNumber],
     () => getData(pageNumber),
     { keepPreviousData: true }
@@ -32,7 +35,7 @@ export default function Characters() {
 
   // Return null if there is nothing in characters
   if (!characters) {
-    return null;
+    return <h1 className="error-messages">There's an error!</h1>;
   }
 
   // Return loading tag if status is loading
@@ -42,11 +45,35 @@ export default function Characters() {
 
   // Return error message if status is error
   if (status === "error") {
-    return <h1>Error: {error.message}</h1>;
+    return <h1 className="error-messages">Error: {error.message}</h1>;
   }
 
   return (
     <div className="characters-container">
+      <div className="page-interaction">
+        <button
+          // Bring the user to previous page
+          onClick={() => setPageNumber((current) => Math.max(current - 1, 0))}
+          disabled={pageNumber === 1}
+        >
+          PREVIOUS PAGE
+        </button>
+
+        <h4>CURRENT PAGE: {pageNumber}</h4>
+
+        <button
+          // Take the user to next page
+          onClick={() => {
+            if (!isPreviousData) {
+              setPageNumber((current) => current + 1);
+            }
+          }}
+          disabled={isPreviousData || pageNumber === 22}
+        >
+          NEXT PAGE
+        </button>
+      </div>
+
       <div className="characters">
         {characters &&
           characters.map((character) => (
@@ -61,24 +88,6 @@ export default function Characters() {
             />
           ))}
       </div>
-      <div>Current page: {pageNumber}</div>
-      <button
-        onClick={() => setPageNumber((old) => Math.max(old - 1, 0))}
-        disabled={pageNumber === 1}
-      >
-        Previous Page
-      </button>{" "}
-      <button
-        onClick={() => {
-          if (!isPreviousData) {
-            setPageNumber((old) => old + 1);
-          }
-        }}
-        disabled={isPreviousData || pageNumber === 22}
-      >
-        Next Page
-      </button>
-      {isFetching ? <span> Loading...</span> : null}{" "}
     </div>
   );
 }

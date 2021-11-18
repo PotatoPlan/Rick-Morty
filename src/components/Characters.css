@@ -1,3 +1,37 @@
 .characters-container {
   background-color: #e7e7e7;
 }
+
+/* Page number, previous and next button */
+.page-interaction {
+  background-color: #ffffff;
+  padding: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 1%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/* Button styling. Normal, hover, and disabled */
+button {
+  border: none;
+  padding: 1%;
+  border-radius: 5%;
+  background-color: #42add4;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #28b8ec;
+}
+
+button:disabled {
+  background-color: #c4c4c4;
+}

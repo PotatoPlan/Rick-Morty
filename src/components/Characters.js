@@ -35,12 +35,12 @@ export default function Characters() {
 
   // Return null if there is nothing in characters
   if (!characters) {
-    return <h1 className="error-messages">There's an error!</h1>;
+    return <h1 className="loading-messages">Loading...</h1>;
   }
 
   // Return loading tag if status is loading
   if (status === "loading") {
-    return <h1>Loading...</h1>;
+    return <h1 className="loading-messages">Loading...</h1>;
   }
 
   // Return error message if status is error

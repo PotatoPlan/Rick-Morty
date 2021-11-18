@@ -30,14 +30,17 @@ export default function Characters() {
     { keepPreviousData: true }
   );
 
+  // Return null if there is nothing in characters
   if (!characters) {
     return null;
   }
 
+  // Return loading tag if status is loading
   if (status === "loading") {
     return <h1>Loading...</h1>;
   }
 
+  // Return error message if status is error
   if (status === "error") {
     return <h1>Error: {error.message}</h1>;
   }

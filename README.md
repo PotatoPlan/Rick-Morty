@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# Simple React Application using Rick and Morty API
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Start the project
 
 In the project directory, you can run:
 
@@ -14,57 +14,28 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+## Details
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This simple React application retrieves all human characters from Rick and Morty and display them in a list.
 
-### `npm run build`
+The character's image, status, origin, location, and created data will be displayed when clicked on the name of the character.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Rick and Morty API provides paginated data with maximum 20 characters in one page. For all human characters, there are 22 pages of data retrieved (as of November 2021).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Third-party Libraries
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React has an awesome ecosystem and you can achieve almost everything with lots of 3rd party libraries available.
 
-### `npm run eject`
+To build this application, the following libraries were utilised.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### React-Query
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Official website and documentation: [https://react-query.tanstack.com/](https://react-query.tanstack.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This library was utilised to make queries for paginated API data. Although it's possible to write your own algorithm to fetch paginated data, there might be many unexpected problems and errors to handle. React-Query's useQuery hook helps to collect paginated data with a clean solution.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Axios
 
-## Learn More
+Official website and documentation: [https://axios-http.com/](https://axios-http.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Axios is one of the most popular Promise based HTTP client for React projects, and this application has utilised axios to fetch data from Rick and Morty API.

@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 ## Details
 
-This simple React application retrieves all human characters from Rick and Morty and display them in a list.
+This simple React application retrieves all human characters from Rick and Morty and displays them in a list.
 
 The character's image, status, origin, location, and created data will be displayed when clicked on the name of the character.
 
